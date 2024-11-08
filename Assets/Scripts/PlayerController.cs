@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
 
     public PlayerCamera PlayerCam;
 
-    private Vector3 rollDir; //회피
-
     public Collider WeaponColider;
     public Collider HitCoilder;
 
@@ -44,10 +42,19 @@ public class PlayerController : MonoBehaviour
     float rotationSpeed = 15;
 
     public bool isAttack;
-
     public bool isDodge;
     public bool isDie;
     public bool isHit;
+
+    public enum State{
+        Idle,
+        Attack,
+        Dodge,
+        Hit,
+        Move,
+        Die
+    }
+    public State Currentstate;
     
     
     [SerializeField]
@@ -62,34 +69,29 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Currentstate = State.Idle;
         TryGetComponent(out ani);
         characterController = transform.GetComponent<CharacterController>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     private void Update()
     {
-        if(isDie){
-            return;
-            }
+        if(Currentstate == State.Die){return;}
+        if(inputvec != Vector2.zero){Currentstate = State.Move;}
+        if(Currentstate == State.Move){Move();}
+        //죽으면 움직이지말기
         HandleCameraMovementInput();
-        if(!isAttack && !isDodge){Move();}
         HandleRotation();
     }
-    // void Roll(){
-    //     if(moveAmount > 0){
-    //         rollDir=PlayerCam.transform.forward *v;
-    //         rollDir += PlayerCam.transform.right *h;
-    //         rollDir.y=0;
-    //         rollDir.Normalize();
-    //         Quaternion playerRotation =Quaternion.LookRotation(rollDir);
-    //         transform.rotation=playerRotation;
-    //     }
-    // }
+
     void Move()
     {
-        if(isHit){return;}
+        //쳐맞는중이면 하지말고 리턴
+        if(Currentstate == State.Die){return;}
+
         v = inputvec.y;
         h = inputvec.x;
 
@@ -125,35 +127,35 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+    //playerSystem 조작들 
     void OnAttack()
     {
-        if(isDie){return;}
-        isAttack =true;
+        if(Currentstate == State.Die){return;}
+        Currentstate = State.Attack;
         ani.SetTrigger("Attack");
-        onHit();
+        // onHit();// 애니메이션 자체로 수정할예정
     }
     void OnChargeAttack(){
-        if(isDie){return;}
-        isAttack =true;
+        if(Currentstate == State.Die){return;}
+        Currentstate = State.Attack;
         ani.SetTrigger("chargedAttack");
-        onHit();
+        // onHit();// 애니메이션 자체로 수정할예정
     }
     //닺지
     void OnSprint(){
-        if(isDie){return;}
+          if(Currentstate == State.Die){return;}
         ani.SetTrigger("Roll");
-        isDodge = true;
+        Currentstate = State.Dodge;
     }
     void OnMove(InputValue value)
     {
-        if(isDie){return;}
-        
+        if(Currentstate == State.Die){return;}
+        Debug.Log("버튼한번 클릭");
         inputvec = value.Get<Vector2>();
     }
     void OnCamControl(InputValue value)
     {
-        if(isDie){return;}
+        if(Currentstate == State.Die){return;}
         camerainput = value.Get<Vector2>();
     }
 
@@ -174,18 +176,18 @@ public class PlayerController : MonoBehaviour
         Quaternion targetRotaition = Quaternion.Slerp(transform.rotation, newRotation, rotationSpeed * Time.deltaTime);
         transform.rotation = targetRotaition;
     }
+
     void HandleCameraMovementInput()
     {
         camV = camerainput.y;
         camH = camerainput.x;
     }
-   
+    // 공격 맞을 시 행동
     private void OnTriggerEnter(Collider other) {
-        if(other.tag !="EnemyWeapon"){
-            return;
-        }
-        if(other.tag=="EnemyWeapon"){
-           
+        if(other.tag !="EnemyWeapon"){return;}
+
+        if(other.tag=="EnemyWeapon")
+        { 
             if(Hp > 0){
                 if(isDodge){return;}
                 isHit = true;
@@ -197,7 +199,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void onDie(){
-            isDie = true;
+            Currentstate = State.Die;
             ani.SetTrigger("Die");
             Debug.Log("죽음");
     }

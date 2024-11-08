@@ -6,7 +6,7 @@ public class AttackReset : StateMachineBehaviour
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) {
         animator.ResetTrigger(triggerName);
-        animator.GetComponent<PlayerController>().isAttack = false; 
+        animator.GetComponent<PlayerController>().Currentstate = PlayerController.State.Idle;
     }
  
 }

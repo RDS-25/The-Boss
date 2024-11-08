@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     
 
     void Start(){
-        PauseGame();
+        // PauseGame();
         
     }
 
@@ -47,10 +47,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            GameStart();
-        }
+        // if (Input.GetKeyDown("space"))
+        // {
+        //     GameStart();
+        // }
         
         var Bosshp = boss.GetComponent<BossController>().Hp;
         var Playerhp = player.GetComponent<PlayerController>().Hp;

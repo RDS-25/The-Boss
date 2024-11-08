@@ -2525,6 +2525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 153417663749428509, guid: 310113458d68e224cac9c9ffed430340, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1218198215838602202, guid: 310113458d68e224cac9c9ffed430340, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2760,9 +2764,21 @@ PrefabInstance:
       propertyPath: m_BlendShapeWeights.Array.size
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1058176716546993299, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[3]'
+      value: 9.655745e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058176716546993299, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[5]'
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1985766665854474276, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
       propertyPath: m_BlendShapeWeights.Array.size
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985766665854474276, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[4]'
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2156050059632445160, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
       propertyPath: m_TagString
@@ -2788,6 +2804,14 @@ PrefabInstance:
       propertyPath: m_BlendShapeWeights.Array.size
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2775003936862348265, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[3]'
+      value: 9.655745e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775003936862348265, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[5]'
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5231603654186275059, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2799,6 +2823,18 @@ PrefabInstance:
     - target: {fileID: 5931571237852481515, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
       propertyPath: m_BlendShapeWeights.Array.size
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931571237852481515, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[3]'
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931571237852481515, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[4]'
+      value: 6.7590217e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931571237852481515, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[5]'
+      value: 2.8967231e-10
       objectReference: {fileID: 0}
     - target: {fileID: 6899384232737528090, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2844,6 +2880,10 @@ PrefabInstance:
       propertyPath: m_BlendShapeWeights.Array.size
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 8324077824409331634, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2863,6 +2903,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5231603654186275059, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5634200685339920810}
+    - targetCorrespondingSourceObject: {fileID: 5231603654186275059, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5634200685339920813}
     - targetCorrespondingSourceObject: {fileID: 2156050059632445160, guid: 53e24b87c84b2844ab828d29a878527b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1952224126}
@@ -3054,6 +3097,19 @@ MonoBehaviour:
   maxhp: 0
   hpGauge: {fileID: 280866372}
   Ui: {fileID: 1545081894}
+--- !u!114 &5634200685339920813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059601570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: debe6b0104693824a945d7011b53f0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponCoilder: {fileID: 1952224126}
 --- !u!1001 &5873074101285357064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3234,7 +3290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4726408982216222010, guid: 0962e375e83cd4a4791742d791f6ba4e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5207681691199179653, guid: 0962e375e83cd4a4791742d791f6ba4e, type: 3}
       propertyPath: m_Acceleration
